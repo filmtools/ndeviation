@@ -9,6 +9,12 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/filmtools/ndeviation/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/filmtools/ndeviation/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/filmtools/ndeviation/badges/build.png?b=master)](https://scrutinizer-ci.com/g/filmtools/ndeviation/build-status/master)
 
+## Installation
+
+```bash
+$ composer require filmtools/ndeviation
+```
+
 
 
 ## NDeviation classes
