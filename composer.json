@@ -23,6 +23,10 @@
     "php": "^7.1"
   },
 
+  "suggest": {
+  	"twig/twig": "NDeviation comes with a handy Twig Extension"
+  },
+
 	"autoload-dev": {
 	  	"psr-4": { "tests\\": "tests/src" }
 	},
