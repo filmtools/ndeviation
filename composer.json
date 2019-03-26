@@ -20,11 +20,8 @@
   },
 
   "require": {
-    "php": "^7.1"
-  },
-
-  "suggest": {
-  	"twig/twig": "NDeviation comes with a handy Twig Extension"
+    "php": "^7.1",
+    "twig/twig": "^2.0"
   },
 
 	"autoload-dev": {
