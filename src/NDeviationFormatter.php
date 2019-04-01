@@ -30,7 +30,7 @@ class NDeviationFormatter
             $N = $N->getValue();
 
         elseif (!is_numeric( $N ))
-            throw new InvalidArgumentException("Numeric value, NDeviationInterface, or NDeviationProviderInterface expected.");
+            throw new \InvalidArgumentException("Numeric value, NDeviationInterface, or NDeviationProviderInterface expected.");
 
 
 
