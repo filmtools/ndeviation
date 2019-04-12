@@ -35,6 +35,9 @@ $ndev->getType(); // "push +2"
 // Nice formatting:
 $formatter = new NDeviationFormatter;
 echo $formatter( $ndev ); // "𝑵 +2"
+// …can cope with strings
+echo $formatter( "2.2" ); // "𝑵 +2.2"
+echo $formatter( "foo" ); // "foo"
 ```
 
 
