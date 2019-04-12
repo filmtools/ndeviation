@@ -25,6 +25,7 @@ class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
 
     }
 
+
     public function provideCtorArguments()
     {
         return array(
@@ -32,7 +33,29 @@ class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
             [  2.2 ],
             [  0 ],
             [  -3 ],
+        );
+    }
 
+
+    /**
+     * @dataProvider provideStringArguments
+     */
+    public function testInvokationOnString( $N, $expected_result)
+    {
+        $sut = new NDeviationFormatter;
+
+        $result = $sut( $N );
+        $this->assertFalse( empty( $result ));
+        $this->assertInternalType( "string", $result );
+        $this->assertEquals( $expected_result,  $result);
+    }
+
+
+    public function provideStringArguments()
+    {
+        return array(
+            [  "2.2", "𝑵 +2.2" ],
+            [  "Some text", "Some text" ],
         );
     }
 
