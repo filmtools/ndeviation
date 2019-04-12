@@ -54,6 +54,7 @@ class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
     public function provideStringArguments()
     {
         return array(
+            [  "-3", "𝑵 -3.0" ],
             [  "2.2", "𝑵 +2.2" ],
             [  "Some text", "Some text" ],
         );
