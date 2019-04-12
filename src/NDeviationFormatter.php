@@ -23,15 +23,18 @@ class NDeviationFormatter
      */
     public function __invoke( $N )
     {
-        if ($N instanceOf NDeviationProviderInterface)
+        if ($N instanceOf NDeviationProviderInterface):
             $N = $N->getNDeviation()->getValue();
 
-        elseif ($N instanceOf NDeviationInterface)
+        elseif ($N instanceOf NDeviationInterface):
             $N = $N->getValue();
-
-        elseif (!is_numeric( $N ))
+        elseif (is_string( $N )):
+            if (filter_var($N, FILTER_VALIDATE_FLOAT) === false):
+                return $N;
+            endif;
+        elseif (!is_numeric( $N )):
             throw new \InvalidArgumentException("Numeric value, NDeviationInterface, or NDeviationProviderInterface expected.");
-
+        endif;
 
 
         $N_str = sprintf( $this->format, abs($N));
