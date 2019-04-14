@@ -5,7 +5,7 @@ class NDeviation implements NDeviationInterface, NDeviationProviderInterface
 {
 
     /**
-     * @var float
+     * @var float|null
      */
     public $ndeviation;
 
@@ -19,7 +19,7 @@ class NDeviation implements NDeviationInterface, NDeviationProviderInterface
      * @param float       $ndeviation  Zone system N deviation value
      * @param string|null $type        Optional: Short description
      */
-    public function __construct( float $ndeviation, string $type = null)
+    public function __construct( ?float $ndeviation, string $type = null)
     {
         $this->ndeviation = $ndeviation;
         $this->type = $type;
@@ -44,9 +44,17 @@ class NDeviation implements NDeviationInterface, NDeviationProviderInterface
     /**
      * @inheritDoc
      */
-    public function getValue() : float
+    public function getValue() : ?float
     {
         return $this->ndeviation;
+    }
+
+    /**
+     * @return bool
+     */
+    public function valid() : bool
+    {
+        return !is_null( $this->ndeviation );
     }
 
     /**
