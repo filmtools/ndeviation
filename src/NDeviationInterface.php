@@ -10,8 +10,13 @@ interface NDeviationInterface
     public function getType() : ?string;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getValue() : float;
+    public function getValue() : ?float;
+
+    /**
+     * @return bool
+     */
+    public function valid() : bool;
 }
 

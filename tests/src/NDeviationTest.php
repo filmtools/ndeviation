@@ -5,7 +5,7 @@ use FilmTools\NDeviation\NDeviation;
 use FilmTools\NDeviation\NDeviationInterface;
 use FilmTools\NDeviation\NDeviationProviderInterface;
 
-class FilmSpeedTest extends \PHPUnit\Framework\TestCase
+class NDeviationTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testInterfaces()
@@ -28,17 +28,27 @@ class FilmSpeedTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($N, $sut->getValue());
         $this->assertEquals($type, $sut->getType());
-
     }
 
     public function provideCtorArguments()
     {
         return array(
+            [  null, "title" ],
             [  1, "title" ],
             [  2.2, null],
             [  -3, "title"],
 
         );
+    }
+
+    public function isValidGetter()
+    {
+        $sut = new NDeviation( null );
+        $this->assertFalse( $sut->valid());
+
+        $sut = new NDeviation( 0.99 );
+        $this->assertTrue( $sut->valid());
+
     }
 
 }
