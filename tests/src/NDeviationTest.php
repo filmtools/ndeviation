@@ -8,7 +8,7 @@ use FilmTools\NDeviation\NDeviationProviderInterface;
 class NDeviationTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testInterfaces()
+    public function testInterfaces() : void
     {
         $sut = new NDeviation( 0.99, "title");
 
@@ -21,8 +21,10 @@ class NDeviationTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @dataProvider provideCtorArguments
+     * @param mixed $N
+     * @param mixed $type
      */
-    public function testInstantiation( $N, $type)
+    public function testInstantiation( $N, $type) : void
     {
         $sut = new NDeviation( $N, $type);
 
@@ -30,7 +32,11 @@ class NDeviationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($type, $sut->getType());
     }
 
-    public function provideCtorArguments()
+
+    /**
+     * @return mixed[]
+     */
+    public function provideCtorArguments() : array
     {
         return array(
             [  null, "title" ],
@@ -41,7 +47,7 @@ class NDeviationTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function isValidGetter()
+    public function isValidGetter() : void
     {
         $sut = new NDeviation( null );
         $this->assertFalse( $sut->valid());

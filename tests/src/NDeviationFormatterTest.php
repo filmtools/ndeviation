@@ -3,15 +3,18 @@ namespace tests;
 
 use FilmTools\NDeviation\NDeviationInterface;
 use FilmTools\NDeviation\NDeviationFormatter;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
 {
 
+    use ProphecyTrait;
 
     /**
      * @dataProvider provideValidCtorArguments
+     * @param  ?float $N
      */
-    public function testInstantiation( $N)
+    public function testInstantiation( $N) : void
     {
 
         $sut = new NDeviationFormatter;
@@ -20,11 +23,14 @@ class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
         $ndev_stub = $ndev->reveal();
 
         $result = $sut( $ndev->reveal() );
-        $this->assertInternalType( "string", $result );
-
+        $this->assertIsString( $result );
     }
 
-    public function provideValidCtorArguments()
+
+    /**
+     * @return mixed[]
+     */
+    public function provideValidCtorArguments() : array
     {
         return array(
             [  null ],
@@ -39,18 +45,22 @@ class NDeviationFormatterTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @dataProvider provideStringArguments
+     * @param  mixed $N
      */
-    public function testInvokationOnString( $N, $expected_result)
+    public function testInvokationOnString( $N, string $expected_result) : void
     {
         $sut = new NDeviationFormatter;
 
         $result = $sut( $N );
-        $this->assertInternalType( "string", $result );
+        $this->assertIsString( $result );
         $this->assertEquals( $expected_result,  $result);
     }
 
 
-    public function provideStringArguments()
+    /**
+     * @return mixed[]
+     */
+    public function provideStringArguments() : array
     {
         return array(
             [  null, "" ],
