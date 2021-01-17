@@ -18,7 +18,7 @@ class NDeviationFormatter
     }
 
     /**
-     * @param  float|NDeviationProviderInterface|NDeviationInterface $N
+     * @param  float|NDeviationProviderInterface|NDeviationInterface|string $N
      * @return string
      */
     public function __invoke( $N )

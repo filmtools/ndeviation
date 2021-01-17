@@ -25,7 +25,10 @@ class NDeviation implements NDeviationInterface, NDeviationProviderInterface
         $this->type = $type;
     }
 
-    public function __debugInfo()
+    /**
+     * @return  mixed[]
+     */
+    public function __debugInfo() : array
     {
         return [
             'type'  => $this->getType(),

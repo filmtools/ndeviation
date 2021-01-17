@@ -20,7 +20,7 @@
   },
 
   "require": {
-    "php": "^7.1",
+    "php": "^7.1|^8.0",
     "twig/twig": "^2.0"
   },
 
@@ -30,11 +30,14 @@
 
   "require-dev": {
       "php-coveralls/php-coveralls": "^2.0",
-      "phpunit/phpunit": "^5.7|^6.0|^7.0",
-      "spatie/phpunit-watcher": "^1.8"
+      "phpspec/prophecy-phpunit": "^2.0",
+      "phpunit/phpunit": "^7.0|^8.0|^9.0",
+      "spatie/phpunit-watcher": "^1.8",
+      "phpstan/phpstan": "^0.12"
   },
 
   "scripts": {
+  			"phpstan": "phpstan analyse src tests --level 8",
         "phpunit": "phpunit --colors=auto",
         "watch": "phpunit-watcher watch",
         "test": [
